@@ -16,32 +16,32 @@
                     <h3 class="panel-title">How to find a city in North America</h3>
                 </div>
                 <div class="panel-body">
-                    <form class="form" v-on:submit.prevent="onFormSubmit">
+                    <form class="form" v-on:submit.prevent="addRequest">
                         <div class="form-group">
                             <label for="select-country">Select the country</label>
-                            <select class="form-control" id="select-country" v-model="ask.country">
+                            <select class="form-control" id="select-country" v-model="rqCountry">
                                 <option v-for="country in countryList">{{country}}</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="select-state">Input the state</label>
-                            <input class="form-control" id="select-state" v-model="ask.state">
+                            <input class="form-control" id="select-state" v-model="rqState">
                         </div>
                         <div class="form-group">
                             <label for="select-city">Input the city</label>
-                            <input class="form-control" id="select-city" v-model="ask.city">
+                            <input class="form-control" id="select-city" v-model="rqCity">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
             <div class="col-md-12" >
                 <h3>The list of cities:</h3>
                 <ul>
-                    <li v-for="lc in listCon" class="cityAbbr"> 
-                        <p>{{lc.country}}</p>
-                        <p>{{lc.state}}</p>
-                        <p>{{lc.city}}</p>
+                    <li v-for="rq in requestList" :key="rq.id" class="cityAbbr">
+                        <p>{{rq.country}}</p>
+                        <p>{{rq.state}}</p>
+                        <p>{{rq.city}}</p>
                     </li>
                 </ul>
             </div>
