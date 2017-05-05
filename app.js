@@ -1,7 +1,7 @@
 var app = new Vue({
   el: '#main',
   data: {
-    countryList: ["USA","Canada","Mexico"],
+    countryList: ["USA"],//,"Canada","Mexico"],
     requestList: [],
     request:{},
     rqCountry:'', 
