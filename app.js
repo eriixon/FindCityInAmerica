@@ -2,7 +2,8 @@ var app = new Vue({
   el: '#main',
   data: {
     countryList: ["USA"],//,"Canada","Mexico"],
-    requestList: [],
+    responceList:[],
+    requestList:[],
     request:{},
     rqCountry:'', 
     rqState:'', 
@@ -10,15 +11,15 @@ var app = new Vue({
   },
  methods: {
     addRequest: function() {
-        request = {"country":this.rqCountry,"state":this.rqState,"city":this.rqCity};
-        if (request) {
-            console.log("HEY");
-            this.requestList.push(request);
-            this.request = "";
-        }
-        this.rqCountry='';
-        this.rqState='';
-        this.rqCity='';
+      request = {"country":this.rqCountry,"state":this.rqState,"city":this.rqCity};
+      if (this) this.requestList.push(request);
+      this.request = "";
+      this.rqCountry='';
+      this.rqState='';
+      this.rqCity='';
+    },
+    sendRequest: function(request){
+      askCityList(request, resp => this.responceList.push(resp));
     }
-  }
+ }
 });

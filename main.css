@@ -1,10 +1,15 @@
 .panel-primary {
     margin-top: 2vw;
 }
-.cityAbbr {
+.cityRequest {
     border: 1px solid gray;
     border-radius: 5px;
 }
 ul {
     list-style: none;
+}
+.cityResponce {
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: yellowgreen;
 }

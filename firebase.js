@@ -1,20 +1,30 @@
-  var config = {
-    apiKey: "AIzaSyCt8rorJlbWFp6TB8GlAC2090vTXmWj02M",
-    authDomain: "findthecity-f150a.firebaseapp.com",
-    databaseURL: "https://findthecity-f150a.firebaseio.com",
-    projectId: "findthecity-f150a",
-    storageBucket: "findthecity-f150a.appspot.com",
-    messagingSenderId: "481758651916"
-  };
-  firebase.initializeApp(config);
+'use strict';
 
-var fcst = firebase.storage();
-var fcdb = firebase.database();
+/*
+fcst - FireBase storage;
+fcdb - Firebase Database;
+*/
 
 
-var al = "Alabama";
+// Request from Front to DB with country/state/city info
+function askCityList (req, cb){
+  var responce = {};
+  var currRef = req.country+"/"+req.state;
+  fcdb.ref(currRef).once("value").then(snapshot=> {
+    var dbState = snapshot.val();
+    // search of the 
+    for (var county in dbState) {
+      if (dbState.hasOwnProperty(county)) {
+        var currCounty = dbState[county];
+        if(currCounty[req.city]){
+          currCounty[req.city].Country = req.country;
+          cb(currCounty[req.city]);
+        }
+      }
+    }
+  });
+}
 
-fcdb.ref("USA").child(al).set({
-    username: "name",
-    profile_picture : 11
-});
+//TODO: add more flexable search of citis - indexof()
+//TODO: add seach if we know only Country and City
+//TODO: splite serach in DB and in the Object

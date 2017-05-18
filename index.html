@@ -35,13 +35,19 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-12" >
-                <h3>The list of cities:</h3>
+            <div class="col-md-6" >
+                <h3>The list of requests:</h3>
                 <ul>
-                    <li v-for="rq in requestList" :key="rq.id" class="cityAbbr">
-                        <p>{{rq.country}}</p>
-                        <p>{{rq.state}}</p>
-                        <p>{{rq.city}}</p>
+                    <li v-for="rq in requestList" :key="rq.id" class="cityRequest" v-on:click="sendRequest(rq)">
+                        <p>{{rq.country}}<br>{{rq.state}}<br>{{rq.city}}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6" >
+                <h3>The list of Responce:</h3>
+                <ul>
+                    <li v-for="rp in responceList" :key="rp.id" class="cityResponce">
+                        <p>Country: {{rp.Country}}</p><p>State: {{rp.State}}</p><p>County: {{rp.County}}</p><p>City: {{rp.Name}}</p>
                     </li>
                 </ul>
             </div>
@@ -51,10 +57,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-<script src="app.js"></script>
+<script src="config/fbconfig.js"></script>
 <script src="firebase.js"></script>
-<script src="USA/alabama.js"></script>
-<script src="USA/alaska.js"></script>
-<script src="convertor.js"></script>
+<!--<script src="config/convert2.js"></script>-->
+<script src="app.js"></script>
 </body>
 </html>
