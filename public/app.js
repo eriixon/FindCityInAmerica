@@ -19,7 +19,9 @@ var app = new Vue({
       this.rqCity='';
     },
     sendRequest: function(request){
-      askCityList(request, resp => this.responceList.push(resp));
+      this.$http.put('/askCityList', request).then(
+        data => {data.body.forEach(element => this.responceList.push(element), this)},
+        error => window.alert(error.statusText))
     }
  }
 });
