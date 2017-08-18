@@ -13,3 +13,6 @@ ul {
     border-radius: 5px;
     background-color: yellowgreen;
 }
+.btn-find, .btn-del { 
+    width: 100%;
+}

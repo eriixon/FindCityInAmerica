@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="main.css">
     <title>Find a city in NA</title>
 </head>
+
 <body>
     <div class="container" id="main">
         <div class="row">
@@ -35,28 +37,46 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-6" >
+            <div class="col-md-6">
                 <h3>The list of requests:</h3>
                 <ul>
-                    <li v-for="rq in requestList" :key="rq.id" class="cityRequest" v-on:click="sendRequest(rq)">
-                        <p>{{rq.country}}<br>{{rq.state}}<br>{{rq.city}}</p>
+                    <li v-for="rq in requestList" :key="rq.id">
+                        <div class="col-md-12 cityRequest">
+                            <div class="col-md-6">
+                                <p>Country</br>State</br>City</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{rq.country}}</br>{{rq.state}}</br>{{rq.city}}</p>
+                            </div>
+                            <div class="col-md-6"><button class="btn-del btn btn-danger" v-on:click="deleteRequest(rq.id)">Delete</button></div>
+                            <div class="col-md-6"><button class="btn-find btn btn-primary" v-on:click="sendRequest(rq)">Find</button></div>
+                        </div>
                     </li>
                 </ul>
             </div>
-            <div class="col-md-6" >
+            <div class="col-md-6">
                 <h3>The list of Responce:</h3>
                 <ul>
-                    <li v-for="rp in responceList" :key="rp.id" class="cityResponce">
-                        <p>Country: {{rp.Country}}</p><p>State: {{rp.State}}</p><p>County: {{rp.County}}</p><p>City: {{rp.Name}}</p>
+                    <li v-for="rp in responceList" :key="rp.id">
+                        <div class="col-md-12 cityResponce">
+                            <div class="col-md-6">
+                                <p>Country</br>State</br>County</br>City</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{rp.Country}}</br>{{rp.State}}</br>{{rp.County}}</br>{{rp.Name}}</p>
+                            </div>
+                            <div class="col-md-6"><button class="btn-del btn btn-danger" v-on:click="deleteResponse(rp.id)">Delete</button></div>
+                        </div>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.3"></script>
-<script src="app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.3"></script>
+    <script src="app.js"></script>
 </body>
+
 </html>
