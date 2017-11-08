@@ -16,3 +16,11 @@ ul {
 .btn-find, .btn-del { 
     width: 100%;
 }
+#spanel {
+    height: 50vh;
+    background-image: url("http://wanderlustaupair.com/wp-content/uploads/2016/09/usa3-1.jpg");
+    padding-top:75px;
+}
+.form-control{
+    margin-bottom: 50px;
+}

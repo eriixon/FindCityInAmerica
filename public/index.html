@@ -11,32 +11,21 @@
 </head>
 
 <body>
-    <div class="container" id="main">
-        <div class="row">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">How to find a city in North America</h3>
-                </div>
-                <div class="panel-body">
-                    <form class="form" v-on:submit.prevent="addRequest">
-                        <div class="form-group">
-                            <label for="select-country">Select the country</label>
-                            <select class="form-control" id="select-country" v-model="rqCountry">
-                                <option v-for="country in countryList">{{country}}</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="select-state">Input the state</label>
-                            <input class="form-control" id="select-state" v-model="rqState">
-                        </div>
-                        <div class="form-group">
-                            <label for="select-city">Input the city</label>
-                            <input class="form-control" id="select-city" v-model="rqCity">
-                        </div>
-                        <button class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
+    <div class="container-fluid" id="main">    
+        <div class="row" id="spanel">
+            <div class="col-md-6 col-md-offset-3">            
+                <form class="form" v-on:submit.prevent="addRequest">
+                    <select class="form-control" id="select-country" v-model="rqCountry">
+                        <option v-for="country in countryList">{{country}}</option>
+                    </select>
+                    <input class="form-control" id="select-state" v-model="rqState">
+                    <input class="form-control" id="select-city" v-model="rqCity">
+                    <button class="btn btn-primary">Submit</button>
+                </form>
             </div>
+        </div>
+
+        <div class="row">
             <div class="col-md-6">
                 <h3>The list of requests:</h3>
                 <ul>
