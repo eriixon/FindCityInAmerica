@@ -1,48 +1,65 @@
 .panel-primary {
     margin-top: 2vw;
 }
+
 .cityRequest {
     border: 1px solid gray;
     border-radius: 5px;
 }
+
 ul {
     list-style: none;
 }
+
 .cityResponce {
     border: 1px solid gray;
     border-radius: 5px;
     background-color: yellowgreen;
     height: 110px;
 }
-.btn-find { 
+
+.btn-find {
     width: 50%;
     margin-bottom: 5px;
     border-radius: 20px;
 }
+
 #spanel {
     height: 60%;
     background-image: url("http://www.inseroequipment.com/uploadedImages/Insero_Equipment(1)/Sales_Rep/North%20America%20Banner.jpg");
-    padding-top:15%;
-    padding-bottom: 25px;
+    padding-top: 15%;
+    padding-bottom: 5%;
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;    
 }
-.form-control{
+
+.form-control {
     margin-bottom: 50px;
 }
-.x-delete{
+
+.x-delete {
     position: absolute;
     top: -1px;
     right: -1px;
     z-index: 100;
     border: 1px solid black;
     border-top-right-radius: 26%;
-    width:20px;
-    height:20px;
+    width: 20px;
+    height: 20px;
     background-color: red;
     color: white;
     text-align: center;
 }
+
 .x-delete:hover {
     background-color: pink;
+}
+
+.input-group-addon {
+    width: 35%;
+}
+
+.input-group {
+    width: 100%;
 }
