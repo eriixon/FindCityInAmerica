@@ -12,15 +12,37 @@ ul {
     border: 1px solid gray;
     border-radius: 5px;
     background-color: yellowgreen;
+    height: 110px;
 }
-.btn-find, .btn-del { 
-    width: 100%;
+.btn-find { 
+    width: 50%;
+    margin-bottom: 5px;
+    border-radius: 20px;
 }
 #spanel {
-    height: 50vh;
-    background-image: url("http://wanderlustaupair.com/wp-content/uploads/2016/09/usa3-1.jpg");
-    padding-top:75px;
+    height: 60%;
+    background-image: url("http://www.inseroequipment.com/uploadedImages/Insero_Equipment(1)/Sales_Rep/North%20America%20Banner.jpg");
+    padding-top:15%;
+    padding-bottom: 25px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .form-control{
     margin-bottom: 50px;
+}
+.x-delete{
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    z-index: 100;
+    border: 1px solid black;
+    border-top-right-radius: 26%;
+    width:20px;
+    height:20px;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+.x-delete:hover {
+    background-color: pink;
 }

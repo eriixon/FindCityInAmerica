@@ -1,23 +1,20 @@
 var app = new Vue({
   el: '#main',
   data: {
-    countryList: ["USA"],//,"Canada","Mexico"],
+    countryList: ["USA","Canada","Mexico"],
     responceList:[],
     requestList:[],
     request:{},
     rqCountry:'', 
-    rqState:'', 
     rqCity:''
   },
  methods: {
     addRequest: function() {
-      request = {"country":this.rqCountry,"state":this.rqState,"city":this.rqCity};
-      var index = this.uuidv4();
-      request.id = index;
+      request = {"country":this.rqCountry,"city":this.rqCity};
+      request.id = this.uuidv4();
       if (this) this.requestList.push(request);
       this.request = "";
       this.rqCountry='';
-      this.rqState='';
       this.rqCity='';
     },
     sendRequest: function(request){

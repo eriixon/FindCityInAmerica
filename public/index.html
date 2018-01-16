@@ -7,55 +7,62 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="main.css">
-    <title>Find a city in NA</title>
+    <title>Find a city in North America</title>
 </head>
 
 <body>
     <div class="container-fluid" id="main">    
         <div class="row" id="spanel">
-            <div class="col-md-6 col-md-offset-3">            
+            <div class="row" style="text-align:center;" >
                 <form class="form" v-on:submit.prevent="addRequest">
-                    <select class="form-control" id="select-country" v-model="rqCountry">
-                        <option v-for="country in countryList">{{country}}</option>
-                    </select>
-                    <input class="form-control" id="select-state" v-model="rqState">
-                    <input class="form-control" id="select-city" v-model="rqCity">
-                    <button class="btn btn-primary">Submit</button>
+                    <div class="col-md-3 col-md-offset-2">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sizing-addon2">Country</span>
+                            <select class="form-control" id="select-country" v-model="rqCountry">
+                                <option v-for="country in countryList">{{country}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sizing-addon2">City</span>
+                            <input class="form-control" id="select-city" v-model="rqCity">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary" style="width:100%">Search</button>
+                    </div>
                 </form>
             </div>
         </div>
-
+        
         <div class="row">
-            <div class="col-md-6">
-                <h3>The list of requests:</h3>
+            <div class="col-md-6" style="text-align: center">
+                <h3>What you are looking for...</h3>
                 <ul>
                     <li v-for="rq in requestList" :key="rq.id">
-                        <div class="col-md-12 cityRequest">
-                            <div class="col-md-6">
-                                <p>Country</br>State</br>City</p>
+                        <div class="col-md-4 cityRequest">
+                            <div>
+                                <span class="x-delete btn-del" v-on:click="deleteRequest(rq.id)">
+                                    <i class="fas fa-times"></i>
+                                </span>
+                                <p>Country</p>
+                                <p>{{rq.country}}</p>
+                                <p>City</p>
+                                <p>{{rq.city}}</p>
                             </div>
-                            <div class="col-md-6">
-                                <p>{{rq.country}}</br>{{rq.state}}</br>{{rq.city}}</p>
-                            </div>
-                            <div class="col-md-6"><button class="btn-del btn btn-danger" v-on:click="deleteRequest(rq.id)">Delete</button></div>
-                            <div class="col-md-6"><button class="btn-find btn btn-primary" v-on:click="sendRequest(rq)">Find</button></div>
+                            <button class="btn-find btn btn-primary" v-on:click="sendRequest(rq)"><i class="fas fa-search"></i></button>
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="col-md-6">
-                <h3>The list of Responce:</h3>
+                <h3>... and what we've found</h3>
                 <ul>
-                    <li v-for="rp in responceList" :key="rp.id">
-                        <div class="col-md-12 cityResponce">
-                            <div class="col-md-6">
-                                <p>Country</br>State</br>County</br>City</p>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{rp.Country}}</br>{{rp.State}}</br>{{rp.County}}</br>{{rp.Name}}</p>
-                            </div>
-                            <div class="col-md-6"><button class="btn-del btn btn-danger" v-on:click="deleteResponse(rp.id)">Delete</button></div>
-                        </div>
+                    <li v-for="rp in responceList" :key="rp.id" ><div class="col-md-4 cityResponce">
+                        <span class="x-delete btn-del" v-on:click="deleteResponse(rp.id)"><i class="fas fa-times"></i></span>
+                        <p>Country</br>State</br>County</br>City</p>
+                        <p>{{rp.Country}}</br>{{rp.State}}</br>{{rp.County}}</br>{{rp.Name}}</p>
                     </li>
                 </ul>
             </div>
@@ -63,6 +70,7 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.3"></script>
     <script src="app.js"></script>
