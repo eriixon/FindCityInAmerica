@@ -9,17 +9,21 @@ var app = new Vue({
     rqCity:''
   },
  methods: {
-    addRequest: function() {
-      request = {"country":this.rqCountry,"city":this.rqCity};
-      request.id = this.uuidv4();
-      if (this) this.requestList.push(request);
+    sendRequest: function(){
+      request = {
+        "country": this.rqCountry,
+        "city": this.rqCity,
+        "id": this.uuidv4()
+      };
+        if (this) this.requestList.push(request);
       this.request = "";
       this.rqCountry='';
       this.rqCity='';
-    },
-    sendRequest: function(request){
       this.$http.put('/askCityList', request).then(
-        data => {data.body.forEach(element => this.responceList.push(element), this)},
+        data => {data.body.forEach(element => {
+          this.responceList.push(element), this;
+          $("#found").show();
+        })},
         error => window.alert(error.statusText))
     },
     deleteRequest: function(id){

@@ -2,35 +2,23 @@
     margin-top: 2vw;
 }
 
-.cityRequest {
-    border: 1px solid gray;
-    border-radius: 5px;
-}
-
 ul {
     list-style: none;
 }
 
 .cityResponce {
-    border: 1px solid gray;
+    border: 1px solid black;
     border-radius: 5px;
-    background-color: yellowgreen;
-    height: 110px;
+    margin: 5px;
 }
-
-.btn-find {
-    width: 50%;
-    margin-bottom: 5px;
-    border-radius: 20px;
+.cityResponce:hover{
+    color:#FFFA00;
 }
 
 #spanel {
     height: 60%;
-    background-image: url("http://www.inseroequipment.com/uploadedImages/Insero_Equipment(1)/Sales_Rep/North%20America%20Banner.jpg");
-    padding-top: 15%;
+    padding-top: 10%;
     padding-bottom: 5%;
-    background-repeat: no-repeat;
-    background-size: cover;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;    
 }
 
@@ -43,7 +31,6 @@ ul {
     top: -1px;
     right: -1px;
     z-index: 100;
-    border: 1px solid black;
     border-top-right-radius: 26%;
     width: 20px;
     height: 20px;
@@ -62,4 +49,27 @@ ul {
 
 .input-group {
     width: 100%;
+}
+
+body {
+    background: url(https://fedweb-assets.s3.amazonaws.com/cache/fed-42/2/Homepage_hero-map%25282%2529_resize1516__1_.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#btn-submit{
+    width:100%;
+    background-color:#FFFA00;
+    color:#4277FB;
+}
+
+#btn-submit:hover {
+    color:red
+}
+
+#found{
+    display: none;
+    text-transform: uppercase;
 }
