@@ -1,0 +1,21 @@
+<template>
+    <ul>
+        <li v-for="rp in responceList" :key="rp.id">
+            <div class="col-md-3 cityResponce">
+                <span class="x-delete btn-del" v-on:click="deleteResponse(rp.id)"><i class="fas fa-times"></i></span>
+                <div class="col-md-4">
+                    <p>Country</p>
+                    <p>State</p>
+                    <p>County</p>
+                    <p>City</p>
+                </div>
+                <div class="col-md-8">
+                    <p>{{rp.Country}}</p>
+                    <p>{{rp.State}}</p>
+                    <p>{{rp.County}}</p>
+                    <p>{{rp.City}}</p>
+                </div>
+            </div>
+        </li>
+    </ul>  
+</template>

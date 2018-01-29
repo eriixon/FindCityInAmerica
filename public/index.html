@@ -22,7 +22,7 @@
                 <div class="col-md-3">
                     <div class="input-group">
                         <span class="input-group-addon">Country</span>
-                        <select class="form-control" id="select-country" v-model="rqCountry">
+                        <select class="form-control" id="select-country" v-model="rqCountry" required>
                             <option v-for="country in countryList">{{country}}</option>
                         </select>
                     </div>
@@ -30,7 +30,7 @@
                 <div class="col-md-3">
                     <div class="input-group">
                         <span class="input-group-addon">City</span>
-                        <input class="form-control" id="select-city" v-model="rqCity">
+                        <input class="form-control" id="select-city" v-model="rqCity" required>
                     </div>
                 </div>
             </form>
@@ -41,17 +41,25 @@
                 <ul>
                     <li v-for="rp in responceList" :key="rp.id">
                         <div class="col-md-3 cityResponce">
-                            <span class="x-delete btn-del" v-on:click="deleteResponse(rp.id)">
-                                <i class="fas fa-times"></i>
-                            </span>
+                            <span class="x-delete btn-del" v-on:click="deleteResponse(rp.id)"><i class="fas fa-times"></i></span>
                             <div class="col-md-4">
-                                <p>Country</br>State</br>County</br>City</p>
+                                <p>Country</p>
+                                <p>State</p>
+                                <p>County</p>
+                                <p>Municipality</p>
+                                <p>City</p>
                             </div>
                             <div class="col-md-8">
-                                <p>{{rp.Country}}</br>{{rp.State}}</br>{{rp.County}}</br>{{rp.City}}</p>
+                                <p>{{rp.Country}}</p>
+                                <p>{{rp.State}}</p>
+                                <p>{{rp.County}}</p>
+                                <p>{{rp.Municipality}}</p>
+                                <p>{{rp.City}}</p>
                             </div>
+                        </div>
                     </li>
                 </ul>
+                <usa-cards></usa-cards>
                 </div>
             </div>
         </div>

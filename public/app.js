@@ -1,3 +1,8 @@
+Vue.component('usa-cards', {
+  template: require('cards/usacity.html'),
+})
+
+
 var app = new Vue({
   el: '#main',
   data: {
@@ -12,7 +17,7 @@ var app = new Vue({
     sendRequest: function () {
       request = {
         "country": this.rqCountry,
-        "city": this.rqCity,
+        "city": this.rqCity.toLowerCase().replace(/\w\S*/g, txt=> {return txt.charAt(0).toUpperCase()+txt.substr(1).toLowerCase();}),
         "id": this.uuidv4()
       };
       if (this) this.requestList.push(request);
