@@ -1,17 +1,11 @@
-Vue.component('usa-cards', {
-  template: require('cards/usacity.html'),
-})
-
-
 var app = new Vue({
   el: '#main',
   data: {
     countryList: ["USA", "Canada", "Mexico"],
     responceList: [],
-    requestList: [],
     request: {},
     rqCountry: '',
-    rqCity: ''
+    rqCity: '',
   },
   methods: {
     sendRequest: function () {
@@ -20,17 +14,11 @@ var app = new Vue({
         "city": this.rqCity.toLowerCase().replace(/\w\S*/g, txt=> {return txt.charAt(0).toUpperCase()+txt.substr(1).toLowerCase();}),
         "id": this.uuidv4()
       };
-      if (this) this.requestList.push(request);
       this.request = "";
       this.rqCountry = '';
       this.rqCity = '';
       this.$http.put('/askCityList', request).then(
-        data => {
-          data.body.forEach(element => {
-            this.responceList.push(element), this;
-            $("#found").show();
-          })
-        },
+        data  => { data.body.forEach(element => { this.responceList.push(element), this;  $("#found").show();  }); },
         error => window.alert(error.statusText))
     },
     deleteRequest: function (id) {

@@ -39,7 +39,9 @@
             <div class="col-md-10 col-md-offset-1">
                 <h3 id="found" style="display:none">... and what we've found for you {{ responceList.length }} cities</h3>
                 <ul>
-                    <li v-for="rp in responceList" :key="rp.id">
+                    <city-list v-for="city in responceList" v-bind:cities="city" v-bind:key="city.id"></city-list>
+
+                <!--    <li v-for="rp in responceList" :key="rp.id">
                         <div class="col-md-3 cityResponce">
                             <span class="x-delete btn-del" v-on:click="deleteResponse(rp.id)"><i class="fas fa-times"></i></span>
                             <div class="col-md-4">
@@ -57,9 +59,10 @@
                                 <p>{{rp.City}}</p>
                             </div>
                         </div>
-                    </li>
+                    </li>-->
                 </ul>
-                <usa-cards></usa-cards>
+                
+                
                 </div>
             </div>
         </div>
