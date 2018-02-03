@@ -12,67 +12,19 @@
 
 <body>
     <div class="container-fluid" id="main">
-        <div class="row" id="spanel">
-            <form class="form" v-on:submit.prevent="sendRequest">
-                <div class="col-md-2 col-md-offset-1">
-                    <button class="btn" id="btn-submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-                <div class="col-md-3">
-                    <div class="input-group">
-                        <span class="input-group-addon">Country</span>
-                        <select class="form-control" id="select-country" v-model="rqCountry" required>
-                            <option v-for="country in countryList">{{country}}</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="input-group">
-                        <span class="input-group-addon">City</span>
-                        <input class="form-control" id="select-city" v-model="rqCity" required>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="row" v-cloak>
-            <div class="col-md-10 col-md-offset-1">
-                <h3 id="found" style="display:none">... and what we've found for you {{ responceList.length }} cities</h3>
-                <ul>
-                    <city-list v-for="city in responceList" v-bind:cities="city" v-bind:key="city.id"></city-list>
+        <city-finder></city-finder>
+        <city-list></city-list>
+    </div>
 
-                <!--    <li v-for="rp in responceList" :key="rp.id">
-                        <div class="col-md-3 cityResponce">
-                            <span class="x-delete btn-del" v-on:click="deleteResponse(rp.id)"><i class="fas fa-times"></i></span>
-                            <div class="col-md-4">
-                                <p>Country</p>
-                                <p>State</p>
-                                <p>County</p>
-                                <p>Municipality</p>
-                                <p>City</p>
-                            </div>
-                            <div class="col-md-8">
-                                <p>{{rp.Country}}</p>
-                                <p>{{rp.State}}</p>
-                                <p>{{rp.County}}</p>
-                                <p>{{rp.Municipality}}</p>
-                                <p>{{rp.City}}</p>
-                            </div>
-                        </div>
-                    </li>-->
-                </ul>
-                
-                
-                </div>
-            </div>
-        </div>
-
-        <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="https://unpkg.com/vue/dist/vue.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.3"></script>
-        <script src="app.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.3"></script>
+    <script src="components/finder.js"></script>
+    <script src="components/city.js"></script>
+    <script src="components/cityList.js"></script>
+    <script src="components/app.js"></script>
 </body>
 
 </html>

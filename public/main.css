@@ -52,7 +52,7 @@ ul {
 }
 
 body {
-    background: url(https://fedweb-assets.s3.amazonaws.com/cache/fed-42/2/Homepage_hero-map%25282%2529_resize1516__1_.png) no-repeat center center fixed;
+    background: url(map.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -70,6 +70,6 @@ body {
 }
 
 #found{
-    display: none;
+    margin-left: 8%;
     text-transform: uppercase;
 }

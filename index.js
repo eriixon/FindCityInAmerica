@@ -15,13 +15,9 @@ let fbs = require('./lib/firebase');
 app.put('/askCityList', function(req,res){
     fbs.askCityList(req.body, responce => {
         if(responce) {
-            if(responce.length !=0){
-                responce.pid = req.body.id//request ID
-                res.send(responce);
-            } else res.status(400).send("Sorry, we can not find this city");
-        }
-//TODO: add request ID to each element of response
-        else res.status(400).send('Bad Request');
+            if(responce.length !=0) res.send(responce);
+            else res.status(400).send("Sorry, we can not find this city");
+        } else res.status(400).send('Server has no data');
     })
 });
 
