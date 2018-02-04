@@ -1,6 +1,7 @@
 var store = {
   state: {
     cityList: [],
+    countries: ["USA", "Canada", "Mexico"]
   },
   addCity: function (city) {
     this.state.cityList.push(city)

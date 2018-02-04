@@ -24,9 +24,9 @@ Vue.component('cityFinder', {
     `,
     data: function () {
         return {
-            searchCountry: 'USA',
-            searchCity:'Moscow',
-            countryList: ["USA", "Canada", "Mexico"]
+            searchCountry: '',
+            searchCity:'',
+            countryList: store.state.countries
         }
     },
     methods: {
@@ -36,10 +36,14 @@ Vue.component('cityFinder', {
                 "city": this.searchCity.toLowerCase().replace(/\w\S*/g, txt => { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); }),
                 "id": this.uuidv4()
             };
+            this.popupMessage("loading");
             this.$http.put('/askCityList', request).then(
-                data => { data.body.forEach(city => store.addCity(city))},
-                error => window.alert(error.body)
-            );
+                data  => {
+                    data.body.forEach(city => store.addCity(city));
+                    swal.close();
+                },
+                error => this.popupMessage(error.body)
+            ).bind(this);
             this.clearRequest();
         },
         uuidv4: function () {
@@ -49,5 +53,11 @@ Vue.component('cityFinder', {
             this.searchCountry = '';
             this.searchCity = '';
         },
+        popupMessage: function(message){
+            popupMessage = {}
+            if (message == "loading") popupMessage  = { title: "Loading", text: "We are looking for this city", icon: "info", buttons: false };
+            else popupMessage = { title: "Opps", text: message, icon: "error", buttons: false };
+            this.$swal(popupMessage);
+        }
     }
 })
