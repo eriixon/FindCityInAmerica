@@ -1,12 +1,11 @@
 Vue.component('cityList', {
     template: `
     <div>
-        <div v-if="cities.length">
-            <h3 id="found">... and what we've found for you {{ cities.length }} cities</h3>
-            <ul>
+        <div class="row">
+            <div v-if="cities.length" class="col-md-10 col-md-offset-1">
                 <city v-for="city in cities" :key="city.id" :city="city" @remove="removeCity(city)" />
-            </ul>
-        </div>        
+            </div>        
+        </div>
     </div>
   `,
     data: function () {
