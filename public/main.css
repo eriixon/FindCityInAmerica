@@ -11,15 +11,16 @@ ul {
     border-radius: 5px;
     margin: 5px;
 }
-.cityResponce:hover{
-    color:#FFFA00;
+
+.cityResponce:hover {
+    color: #FFFA00;
 }
 
 #spanel {
     height: 60%;
     padding-top: 10%;
     padding-bottom: 5%;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;    
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 .form-control {
@@ -28,12 +29,12 @@ ul {
 
 .x-delete {
     position: absolute;
-    top: -1px;
-    right: -1px;
+    top: 10px;
+    right: 20px;
     z-index: 100;
-    border-top-right-radius: 26%;
-    width: 20px;
-    height: 20px;
+    border-radius: 25%;
+    width: 19px;
+    height: 19px;
     background-color: red;
     color: white;
     text-align: center;
@@ -52,24 +53,24 @@ ul {
 }
 
 body {
-    background: url(map.png) no-repeat center center fixed;
+    background: url(./src/map.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 
-#btn-submit{
-    width:100%;
-    background-color:#FFFA00;
-    color:#4277FB;
+#btn-submit {
+    width: 100%;
+    background-color: #FFFA00;
+    color: #4277FB;
 }
 
 #btn-submit:hover {
-    color:red
+    color: red
 }
 
-#found{
+#found {
     margin-left: 8%;
     text-transform: uppercase;
 }
